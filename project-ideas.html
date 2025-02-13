@@ -102,6 +102,37 @@
 <li>Imagi</li>
     </ul>
   <footer>
-        All durations are fictional. <a href="">Suggest a project</a>
-    </footer></body>
+<div id="suggestion-section">
+  All durations are fictional. <a href="#" id="suggest-link" class="text-purple-600">Suggest a project</a>
+  
+  <form id="suggestion-form" action="https://formspree.io/f/myzkdoeb" method="POST" style="display: none;">
+    <div style="margin: 20px 0;">
+      <input type="email" name="email" placeholder="Your email" required
+        style="width: 250px; padding: 8px; border: 1px solid #ccc;">
+    </div>
+    <div style="margin: 20px 0;">
+      <textarea name="message" placeholder="Your message" required
+        style="width: 250px; height: 100px; padding: 8px; border: 1px solid #ccc;"></textarea>
+    </div>
+    <button type="submit" 
+      style="padding: 8px 16px; border: 1px solid #ccc; background: white; cursor: pointer;">
+      Send
+    </button>
+  </form>
+</div>    </footer>
+<script>
+  document.getElementById('suggest-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    const form = document.getElementById('suggestion-form');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+  });
+
+  document.getElementById('suggestion-form').addEventListener('submit', function(e) {
+    // Hide form after submission
+    setTimeout(() => {
+      this.style.display = 'none';
+    }, 100);
+  });
+</script>
+</body>
 </html>
