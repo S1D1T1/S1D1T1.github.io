@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Conversations Viewer</title>
+    <!-- Add highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/php.min.js"></script>
+
+    <!-- Add marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="language-toggle">
+    <button id="en-btn" class="language-btn active">English</button>
+    <button id="fr-btn" class="language-btn">Français</button>
+</div>
+
+<h1 id="app-title">Claude Conversations Viewer</h1>
+
+<div class="controls">
+    <div class="file-input">
+        <label for="file-input" id="file-label">Select your conversations.json file</label>
+        <input type="file" id="file-input" accept=".json">
+    </div>
+    <div class="buttons">
+        <button id="load-button">Load Conversations</button>
+    </div>
+</div>
+
+<div class="stats" id="stats"></div>
+<div class="left-column">
+    <div class="search-field">
+<div class="search-wrapper">
+    <div class="search-type-selector">
+        <button class="search-type-button">Anywhere ▾</button>
+        <div class="search-type-dropdown" hidden>
+            <div class="search-type-option">Anywhere</div>
+            <div class="search-type-option">Title</div>
+            <div class="search-type-option">Message Text</div>
+            <div class="search-type-option">Code</div>
+        </div>
+    </div>
+    <input type="text" id="text-search" placeholder="Search Conversations..." class="search-input">
+    <button type="button" id="clear-search" class="clear-search-button" style="display: none;">×</button>
+</div>    </div>
+</div>
+
+<div class="conversations-container" id="conversations-container">
+    <div class="empty-state">
+        <p id="empty-state-text">Please load your conversations.json file to begin.</p>
+        <p id="empty-state-desc">This file comes from a Claude AI export and contains the history of your
+            conversations.</p>
+    </div>
+</div>
+  <script src="conversationViewer.js"></script>
+  <script src="search.js"></script>
+
+</body>
+</html>
